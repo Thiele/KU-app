@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KU skema</string>
+    
+    
+    
+    
+    <string name="databasenavn">KuSkemaDatabase</string><string name="foldFag">foldFag</string><string name="foldSis">foldSis</string><string name="foldSkema">foldSkema</string><string name="IngenFag">Du har ikke tilføjet kurser</string><string name="nytKursus">Tilføj kursus manuelt</string><string name="OversigtOverEgneFag">Håndter kurser</string>
+    <string name="OversigtOverSisFag">Gennemse kurser</string><string name="OversigtOverSkema">Skema</string><string name="redigerKurser">Rediger kurser</string><string name="SletKursus">Slet fra mine kurser</string><string name="TilfojTilMineFag">Tilføj til mine fag</string><string name="VisKursusside">Vis kursusside</string>
+    
+    
+    <string name="widgetHojre">Næste</string>
+    
+    <string name="widgetVenstre">Forrige</string>
+    <string name="rediger">Rediger kursus</string>
+    <string name="loadCourses">Hent kurser...</string>
+    <string name="goBack">&lt; Gå tilbage</string>
+    
+    
+    
+    
+    
+    
+
+</resources>

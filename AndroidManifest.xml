@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nu.thiele.kuskema"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <uses-sdk 	android:minSdkVersion="7"
+        		android:targetSdkVersion="19"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:theme="@style/MyAppTheme" android:icon="@drawable/icon" android:label="@string/app_name">
+        <receiver android:name="nu.thiele.kuskema.WidgetProvider">
+            <intent-filter>
+                <action android:name="nu.thiele.kuskema.BEFORE"/>
+                <action android:name="nu.thiele.kuskema.NEXT"/>
+                <action android:name="nu.thiele.kuskema.OPEN"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/kuskema_widget_info" />
+        </receiver>
+		<activity android:name=".SisActivity" android:label="@string/app_name" android:launchMode="singleTask">
+		    <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+		</activity>
+		<activity android:name=".RedigerActivity" android:label="@string/app_name"
+		    android:launchMode="singleTop">
+		</activity>
+    </application>
+</manifest>
