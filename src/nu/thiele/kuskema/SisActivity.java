@@ -356,12 +356,12 @@ public class SisActivity extends Activity{
     private void hentSkema(){
     	SkemaAdapter.Entry[] dage = new SkemaAdapter.Entry[5];
     	for(int i = 1; i <= 5; i++){
-    		String dag = "Fredag";
-    		if(i == 1) dag = "Mandag";
-    		else if(i == 2) dag = "Tirsdag";
-    		else if(i == 3) dag = "Onsdag";
-    		else if(i == 4) dag = "Torsdag";
-    		else dag = "Fredag";
+    		String dag = getString(R.string.friday);
+    		if(i == 1) dag = getString(R.string.monday);
+    		else if(i == 2) dag = getString(R.string.tuesday);
+    		else if(i == 3) dag = getString(R.string.wednesday); 
+    		else if(i == 4) dag = getString(R.string.thursday);
+    		else dag = getString(R.string.friday);
     		
     		
     		//Find timerne

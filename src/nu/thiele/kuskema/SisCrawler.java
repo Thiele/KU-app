@@ -12,11 +12,12 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.TreeMap;
 
+import nu.thiele.kuskema.exceptions.NoFacultiesFoundException;
 import nu.thiele.kuskema.ui.Tree;
 import nu.thiele.kuskema.ui.Tree.Node;
 
 public class SisCrawler extends Observable{
-	public static final String root = "http://sis.ku.dk/kurser/";
+	public static final String root = "http://kurser.ku.dk/";
 	public Node current;
 	private Tree tree;
 	
@@ -69,7 +70,6 @@ public class SisCrawler extends Observable{
 	        String linje;
 	        while((linje = br.readLine()) != null){
 	        	if(linje.contains("Lektionsplanen - ")){
-	        		System.out.println(n.children);
 	        		linje = linje.substring(linje.indexOf("/></a></div><strong><a href="));
 	        		String[] array = linje.split("</a></div><strong>");
 	        		for(int i = 1; i < array.length; i++){
@@ -105,19 +105,20 @@ public class SisCrawler extends Observable{
         return update(n);
 	}
 		
-	public void hentFakulteter() throws IOException,Exception{
-		this.tree.getTop().children.clear(); //For en sikkerhedsskyld
-		URLConnection yc = connect("http://sis.ku.dk/kurser/portal2.aspx?pnr=0", true);
+	public void hentFakulteter() throws IOException,NoFacultiesFoundException,Exception{
+		this.tree.getTop().children.clear(); //To be sure
+		URLConnection yc = connect(root, true);
         InputStreamReader isr = new InputStreamReader(yc.getInputStream());
         BufferedReader br = new BufferedReader(isr);
         String linje;
+        StringBuilder sb = new StringBuilder();
         try{
         	while ((linje = br.readLine()) != null){
-        		if(linje.contains("<li class=\"\"><a href=\"portal.aspx?pnr=")){
-        			String key = linje.substring(linje.lastIndexOf("\">")+2, linje.lastIndexOf("</a>"));
-        			String value = linje.substring(linje.indexOf("portal"),linje.lastIndexOf("\""));
-        			if(value.contains("portal.aspx?pnr=")) this.tree.addToTop(key, value);        			
+        		if(sb.length() > 0){
+        			sb.append(linje);
+        			if(linje.contains("</select>")) break;
         		}
+        		if(linje.contains("id=\"faculty\"")) sb.append(linje);
         	}
         }
         catch(Exception e){
@@ -127,7 +128,18 @@ public class SisCrawler extends Observable{
             isr.close();
             br.close();
         }
-        if(this.tree.getTop().children.size() == 0) throw new Exception("Ingen fakulteter fundet. Er sis oppe?");
+        String[] faculties = sb.toString().split("</option><option");
+        for(String f : faculties){
+        	String value = f.substring(f.lastIndexOf("value=")+6+1);
+        	if(value.length() == 0 || value.charAt(0) == '"'){
+        		continue; //Ugly, but easier to read
+        	}
+        	String name = f.substring(f.indexOf(value));
+        	name = name.substring(name.indexOf(">")+1);
+        	if(name.contains("<")) name = name.substring(0, name.indexOf("<"));
+        	if(name.length() > 0 && value.length() > 0) this.tree.addToTop(name,value);
+        }
+        if(this.tree.getTop().children.size() == 0) throw new NoFacultiesFoundException();
 	}
 	
 	public TreeMap<String,String> hentKursusInfo(String link) throws Exception{
@@ -175,7 +187,6 @@ public class SisCrawler extends Observable{
                 		count = 0;
                 	}
                 	else if(tdcount == 3){
-                		System.out.println(type);
                 		type = tdremove(linje);
                 	}
                 	else if(tdcount == 4){
@@ -183,7 +194,6 @@ public class SisCrawler extends Observable{
                 	}
                 	else if(tdcount == 5){
                 		slut = tdremove(linje);
-                		System.out.println(dag+" "+start+"---"+slut+"---"+type);
                 		if(!type.toLowerCase().equals("type")){
                 			//Tilføj fag. Find bedst-matchende type, for at øge modstandsdygtigheden
                 			String v = findtype(type)+"#"+dag+"#"+start+"#"+slut;
@@ -196,7 +206,6 @@ public class SisCrawler extends Observable{
                 	else if(tdcount == 9) tdcount = 0;
                 	else if(dag.toLowerCase().equals("fredag") && linje.startsWith("</table")) break;
                 }
-                System.out.println(retur);
                 skema = true;
         		//Og hent skemaet...
         		break;

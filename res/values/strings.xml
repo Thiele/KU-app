@@ -15,6 +15,11 @@
     <string name="rediger">Rediger kursus</string>
     <string name="loadCourses">Hent kurser...</string>
     <string name="goBack">&lt; Gå tilbage</string>
+    <string name="monday">Mandag</string>
+    <string name="tuesday">Tirsdag</string>
+    <string name="wednesday">Onsdag</string>
+    <string name="thursday">Torsdag</string>
+    <string name="friday">Fredag</string>
     
     
     
