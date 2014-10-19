@@ -1,0 +1,50 @@
+<resources>
+	<!-- Colors -->
+	<color name="default_background">#dddddd</color>
+	<color name="dialog_line_color">@color/highlight_color</color>
+	<color name="dialog_text_color">@color/highlight_color</color>
+	<color name="highlight_color">#cc570a</color>
+	<color name="notice_negative">#f49090</color>
+	<color name="notice_neutral">#f09c13</color>
+	<color name="notice_positive">#2a9300</color>
+	<color name="transparent">#00000000</color>
+
+	<!-- EditText styles -->
+	<style name="MyEditTextStyle" parent="@android:style/Widget.EditText">
+	    <item name="android:background">@drawable/textfield_activated</item>
+	</style>
+		
+	    <!-- ActionBar tabs styles -->
+    <style name="MyActionBarTabs"
+           parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
+        <!-- tab indicator -->
+        <item name="android:background">@drawable/actionbar_tab_indicator</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/actionbar_tab_indicator</item>
+    </style>
+    
+	
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+   
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowBackground">@color/default_background</item>
+    	<item name="android:colorBackground">@color/default_background</item>
+    	
+    	<item name="android:actionBarTabStyle">@style/MyActionBarTabs</item>
+    	<item name="actionBarTabStyle">@style/MyActionBarTabs</item>
+    	
+    	<item name="android:editTextBackground">@drawable/apptheme_edit_text_holo_light</item>
+    </style>
+</resources>

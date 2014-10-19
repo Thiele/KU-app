@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<LinearLayout
+	    android:layout_alignParentTop="true"
+	    android:id="@+id/add_courses_form"
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_above="@+id/add_course_button_search"
+	    >
+	    <TextView
+	        android:textAppearance="@android:style/TextAppearance.Medium"
+	    	android:textStyle="bold"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/faculty"
+	        />
+	    <Spinner
+	        android:id="@+id/add_courses_spinner_faculty"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        />
+	    
+	    <TextView
+	        android:textAppearance="@android:style/TextAppearance.Medium"
+	    	android:textStyle="bold"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/period"
+	        />
+	    <Spinner
+	        android:id="@+id/add_courses_spinner_period"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        />
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        >
+	       <EditText
+	        android:id="@+id/add_courses_freetext"
+	        android:hint="@string/search_courses_placeholder"
+	        android:inputType="text"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:lines="1"
+	        android:maxLines="1"
+	        />
+	    </RelativeLayout>
+	    
+	    <ListView
+	        android:id="@+id/add_courses_list_view"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        >
+	        
+	    </ListView>
+	</LinearLayout>
+	<Button
+		    android:id="@+id/add_course_button_search"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/add_courses_search"
+		    android:layout_above="@+id/add_course_button_add_manually"
+		    />
+	<Button
+	    android:id="@+id/add_course_button_add_manually"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:text="@string/add_courses_add_manually" />
+
+</RelativeLayout>

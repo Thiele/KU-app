@@ -1,30 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KU skema</string>
-    
-    
-    
-    
-    <string name="databasenavn">KuSkemaDatabase</string><string name="foldFag">foldFag</string><string name="foldSis">foldSis</string><string name="foldSkema">foldSkema</string><string name="IngenFag">Du har ikke tilføjet kurser</string><string name="nytKursus">Tilføj kursus manuelt</string><string name="OversigtOverEgneFag">Håndter kurser</string>
-    <string name="OversigtOverSisFag">Gennemse kurser</string><string name="OversigtOverSkema">Skema</string><string name="redigerKurser">Rediger kurser</string><string name="SletKursus">Slet fra mine kurser</string><string name="TilfojTilMineFag">Tilføj til mine fag</string><string name="VisKursusside">Vis kursusside</string>
-    
-    
-    <string name="widgetHojre">Næste</string>
-    
-    <string name="widgetVenstre">Forrige</string>
-    <string name="rediger">Rediger kursus</string>
-    <string name="loadCourses">Hent kurser...</string>
-    <string name="goBack">&lt; Gå tilbage</string>
-    <string name="monday">Mandag</string>
-    <string name="tuesday">Tirsdag</string>
-    <string name="wednesday">Onsdag</string>
-    <string name="thursday">Torsdag</string>
-    <string name="friday">Fredag</string>
-    
-    
-    
-    
-    
-    
 
+    <string name="app_name">Skema KU</string>
+    <string name="title_section1">Schedule</string>
+    <string name="title_section2">Add courses</string>
+    <string name="title_section3">Placeholder</string>
+    <string name="add_courses_search">Search for courses...</string>
+    <string name="add_courses_add_manually">Add course manually</string>
+    <string name="search_courses_placeholder">Free text (Name, number, etc.)</string>
+    <string name="ects">ECTS</string>
+    <string name="dialog_alert_default_button">Ok</string>
+    <string name="no_classes_this_day">No classes</string>
+    <string name="schedule_hour_name_spacer">:&#160;</string>
+    <string name="schedule_hour_property_spacer">,&#160;</string>
+    <string name="faculty">Faculty</string>
+    <string name="period">Period</string>
+    <string name="network_not_available">No network connection available</string>
+    <string name="error_connecting_to_search_page">An error happened when connecting to the search page</string>
+    <string name="progress_searching_courses">Searching four courses---</string>
+    <string name="error_loading">An error happened while loading. Please try again. Further description: </string>
+    <string name="error_loading_title">Error when loading</string>
+    <string name="error_loading_null_result">Load error: Null result</string>
+    <string name="error_loading_no_classes_found_title">No courses found</string>
+    <string name="error_loading_no_classes_found">No classes found for course. Do you want to add hese manually?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="pick_class_title">Pick class</string>
+    <string name="error_connecting_to_course_page">An error happened when connectng to the course page</string>
+    <string name="progress_loading_course_page">Fetching course page...</string>
+    <string name="progress_loading_class_hours">Fetching class overview...</string>
+    <string name="add_course">Add course</string>
+    <string name="open_course_page">Open course page</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_heavy_load_warning">This takes a long time and requires a lot of data. You should fill in som fields before searching. Do you really want to perform this search?</string>
+    <string name="edit_classes">Edit classes</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="class_lecture">Lecture</string>
+    <string name="class_class">Class hour</string>
+    <string name="class_unknown">Other activity</string>
+    <string name="remove_course">Remove course</string>
+    <string name="confirm_course_delete">Do you really want to remove this course and all of the registered class hours?</string>
+    <string name="course_was_deleted">The course is now deleted</string>
+    <string name="course_was_added">The course is now added</string>
+    <string name="no_classes_found_for_course">No classes were found for the course</string>
+    <string name="course_name">Course name</string>
+    <string name="rename_course">Rename course</string>
+    <string name="error">Error</string>
+    <string name="course_name_cannot_be_empty">Course name cannot be empty</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="course_got_updated">The course is now updated</string>
+    <string name="finish">Finish</string>
+    <string name="remove_class_hour">Remove class hour</string>
+    <string name="choose_new_course_type">Pick new activity type</string>
+    <string name="change_course_type">Change activity type</string>
+    <string name="change_course_time">Change time</string>
+    <string name="change_course_place">Change place</string>
+    <string name="choose_start_time">Pick starting time</string>
+    <string name="choose_end_time">Pick end time</string>
+    <string name="enter_new_place">Enter new place</string>
+    <string name="enter_new_name">Enter new name</string>
+    <string name="default_room">--- ENTER PLACE ---</string>
+    <string name="add_new_course">Add new course</string>
+    <string name="addition_of_hours">Addition of class hours</string>
+    <string name="enter_course_name">Enter course name</string>
+    <string name="enter_course_name_hint">Course name</string>
+    <string name="no_courses_found_title">No courses found</string>
+    <string name="no_courses_found">Your search did not match any courses</string>
+    <string name="all_faculties">Alle Fakulteter</string>
+    <string name="all_periods">Alle perioder</string>
+    <string name="faculty_value_humaniora">Det Humanistiske Fakultet</string>
+    <string name="faculty_value_law">Det Juridiske Fakultet</string>
+    <string name="faculty_value_nat_bio">Det Natur- og Biovidenskabelige Fakultet</string>
+    <string name="faculty_value_social_studies">Det Samfundsvidenskabelige Fakultet</string>
+    <string name="faculty_value_health">Det Sundhedsvidenskabelige Fakultet</string>
+    <string name="faculty_value_theology">Det Teologiske Fakultet</string>
+    <string name="period_value_b1">Blok 1</string>
+    <string name="period_value_b2">Blok 2</string>
+    <string name="period_value_b3">Blok 3</string>
+    <string name="period_value_b4">Blok 4</string>
+    <string name="period_value_s1">Efterår</string>
+    <string name="period_value_s2">Forår</string>
+    <string name="period_value_summer">Sommer</string>
 </resources>
