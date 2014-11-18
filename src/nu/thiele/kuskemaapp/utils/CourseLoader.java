@@ -90,16 +90,16 @@ public class CourseLoader {
 						Locale l = new Locale("da","DK"); //Page is in Danish...
 						String oev = "øv";
 						String aud = "aud";
-						if(type.toLowerCase(l).contains(oev) || room.toLowerCase(l).startsWith(oev)) guessType = ClassHourType.CLASS;
-						else if(type.toLowerCase(l).contains(aud) || type.toLowerCase(l).contains("forelæsning") || room.toLowerCase(l).startsWith(aud)) guessType = ClassHourType.LECTURE;
+						System.out.println(type);
+						if(type.toLowerCase(l).contains(aud) || type.toLowerCase(l).contains("forelæsning") || room.toLowerCase(l).startsWith(aud)) guessType = ClassHourType.LECTURE;
+						else if(type.toLowerCase(l).contains(oev) || room.toLowerCase(l).startsWith(oev)) guessType = ClassHourType.CLASS;
+
 						//If indeed øvelse, cut off start
 						if(room.toLowerCase(l).startsWith(oev+" -")){
-							guessType = ClassHourType.CLASS;
 							room = room.substring((oev+" -").length());
 						}
 						else if(room.toLowerCase(l).startsWith(aud+" - ")){
-							guessType = ClassHourType.LECTURE;
-							room = room.substring(6);
+							room = room.substring((aud+" -").length());
 						}
 						
 						//And add then new
